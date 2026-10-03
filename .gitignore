@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Data and models (tracked by DVC later, never by Git)
+/data/*
+!/data/.gitkeep
+*.pkl
+*.joblib
+
+# Secrets: DVC tokens must never be in Git
+.dvc/config.local
+.env

@@ -1,0 +1,20 @@
+[project]
+name = "trio-mlops-collab"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.4.6",
+    "pandas>=3.0.6",
+    "pyyaml>=6.0.3",
+    "scikit-learn>=1.9.1",
+]
+
+[dependency-groups]
+dev = [
+    "dvc[s3]>=3.67.1",
+    "ipykernel>=7.4.0",
+    "jupytext>=1.19.5",
+    "pre-commit>=4.6.2",
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+]
