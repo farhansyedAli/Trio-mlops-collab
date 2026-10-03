@@ -1,4 +1,5 @@
 """Create the digits dataset as a CSV in data/."""
+
 from pathlib import Path
 
 from sklearn.datasets import load_digits
