@@ -1,0 +1,15 @@
+seed: 42
+data:
+  train_path: data/raw/train.csv
+  target: label
+split:
+  test_size: 0.2
+train:
+  n_estimators: 400
+  max_depth: 6
+  class_weight: balanced_subsample
+  max_features: log2
+  model: random_forest
+  C: 1.0
+  kernel: rbf
+  max_iter: 1000
