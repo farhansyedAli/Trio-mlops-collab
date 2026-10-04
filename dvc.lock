@@ -1,0 +1,79 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+    - path: data/raw/train.csv
+      hash: md5
+      md5: 4003867bbac45a20a3367753b6a42e81
+      size: 76775041
+    - path: src/prepare.py
+      hash: md5
+      md5: 28685e989fec13c38e5a632b34f41b70
+      size: 594
+    params:
+      params.yaml:
+        data:
+          train_path: data/raw/train.csv
+          target: label
+        seed: 42
+        split:
+          test_size: 0.2
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: 2a402f8f09f1f294c7a55e71731e5f34.dir
+      size: 76781994
+      nfiles: 2
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/train.csv
+      hash: md5
+      md5: bcdf16bd31d14c2ab03051465c6f3609
+      size: 61425870
+    - path: src/train.py
+      hash: md5
+      md5: a755474e71c1667d375cfc012b2be707
+      size: 1370
+    params:
+      params.yaml:
+        data.target: label
+        seed: 42
+        train:
+          n_estimators: 400
+          max_depth: 6
+          class_weight: balanced_subsample
+          max_features: log2
+          model: random_forest
+          C: 1.0
+          kernel: rbf
+          max_iter: 1000
+    outs:
+    - path: models/model.joblib
+      hash: md5
+      md5: 2cc5143d4d674121275a5d6e906ab211
+      size: 7440521
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 926686c1a0fb337ebb6b822de089ade5
+      size: 15356124
+    - path: models/model.joblib
+      hash: md5
+      md5: 2cc5143d4d674121275a5d6e906ab211
+      size: 7440521
+    - path: src/evaluate.py
+      hash: md5
+      md5: 6d2d0767c11a04b959ae843f3ba81ec0
+      size: 703
+    params:
+      params.yaml:
+        data.target: label
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: 90b83a7a3a42a52cb9cfeb50755ef106
+      size: 134

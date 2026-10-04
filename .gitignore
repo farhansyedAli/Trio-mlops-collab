@@ -7,8 +7,6 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Data and models (tracked by DVC later, never by Git)
-/data/*
-!/data/.gitkeep
 *.pkl
 *.joblib
 
