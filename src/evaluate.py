@@ -1,11 +1,13 @@
 import json
 import subprocess
-import yaml
+
 import joblib
 import pandas as pd
+import yaml
 from sklearn.metrics import accuracy_score, f1_score
 
-params = yaml.safe_load(open("params.yaml"))
+with open("params.yaml") as f:
+    params = yaml.safe_load(f)
 target = params["data"]["target"]
 
 test = pd.read_csv("data/processed/test.csv")
@@ -22,4 +24,5 @@ metrics = {
     "f1_macro": f1_score(y, pred, average="macro"),
     "commit_sha": sha,
 }
-json.dump(metrics, open("metrics.json", "w"), indent=2)
+with open("metrics.json", "w") as f:
+    json.dump(metrics, f, indent=2)

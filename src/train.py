@@ -1,14 +1,16 @@
+from pathlib import Path
+
 import joblib
 import pandas as pd
 import yaml
-from pathlib import Path
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.svm import SVC
 
-params = yaml.safe_load(open("params.yaml"))
+with open("params.yaml") as f:
+    params = yaml.safe_load(f)
 target = params["data"]["target"]
 cfg = params["train"]
 seed = params["seed"]
