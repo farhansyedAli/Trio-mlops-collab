@@ -7,6 +7,7 @@ split:
 train:
   n_estimators: 400
   max_depth: 6
+  class_weight: balanced_subsample
   model: random_forest
   C: 1.0
   kernel: rbf
