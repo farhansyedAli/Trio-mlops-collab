@@ -30,3 +30,6 @@ Types: `feat`, `fix`, `docs`, `chore`, `test`, `refactor`, `ci`, `data`.
 - Data and models are tracked by DVC, never by Git.
 - Run `dvc push` before `git push` whenever data or models change.
 - DVC tokens live in `.dvc/config.local` and are **never** committed.
+
+## Retrospective rules
+- Before squash-merging, check the PR's source branch and edit the squash title so it is a single clean Conventional Commit.
