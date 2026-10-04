@@ -22,6 +22,8 @@ if name == "random_forest":
     model = RandomForestClassifier(
         n_estimators=cfg["n_estimators"],
         max_depth=cfg["max_depth"],
+        class_weight=cfg.get("class_weight"),
+        max_features=cfg.get("max_features", "sqrt"),
         random_state=seed,
     )
 elif name == "logistic_regression":
