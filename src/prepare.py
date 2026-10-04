@@ -1,9 +1,11 @@
-import yaml
-import pandas as pd
 from pathlib import Path
+
+import pandas as pd
+import yaml
 from sklearn.model_selection import train_test_split
 
-params = yaml.safe_load(open("params.yaml"))
+with open("params.yaml") as f:
+    params = yaml.safe_load(f)
 target = params["data"]["target"]
 
 df = pd.read_csv(params["data"]["train_path"])

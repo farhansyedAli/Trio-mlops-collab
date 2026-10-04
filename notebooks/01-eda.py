@@ -28,7 +28,7 @@ ROOT = next(
 )
 sys.path.insert(0, str(ROOT))
 
-from src.data_utils import check_digits_frame  # noqa: E402
+from src.data_utils import check_digits_frame
 
 # %% [markdown]
 # ## Load and validate
