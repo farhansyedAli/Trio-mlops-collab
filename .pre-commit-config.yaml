@@ -5,6 +5,7 @@ repos:
       - id: check-added-large-files
         args: ["--maxkb=1024"]
       - id: end-of-file-fixer
+        exclude: ^metrics\.json$
       - id: trailing-whitespace
       - id: check-yaml
       - id: detect-private-key
