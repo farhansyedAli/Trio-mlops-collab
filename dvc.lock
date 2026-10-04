@@ -34,8 +34,8 @@ stages:
       size: 61425870
     - path: src/train.py
       hash: md5
-      md5: 2013a2034dffe6d05273448bc80a0559
-      size: 1246
+      md5: 435e9485da1169796b012e853de566d4
+      size: 1251
     params:
       params.yaml:
         data.target: label
@@ -43,6 +43,7 @@ stages:
         train:
           n_estimators: 400
           max_depth: 6
+          class_weight: balanced_subsample
           model: random_forest
           C: 1.0
           kernel: rbf
@@ -50,8 +51,8 @@ stages:
     outs:
     - path: models/model.joblib
       hash: md5
-      md5: fcdfd63f790dddd758330125dfb1b577
-      size: 7490329
+      md5: 153e1cf0ea9a3937da98838644bfe45b
+      size: 7489193
   evaluate:
     cmd: python src/evaluate.py
     deps:
@@ -61,8 +62,8 @@ stages:
       size: 15356124
     - path: models/model.joblib
       hash: md5
-      md5: fcdfd63f790dddd758330125dfb1b577
-      size: 7490329
+      md5: 153e1cf0ea9a3937da98838644bfe45b
+      size: 7489193
     - path: src/evaluate.py
       hash: md5
       md5: 8f3d08032197ce3d382296f1d784d27e
@@ -73,5 +74,5 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: 4020fe2fad37565e594b57050c20a0a5
-      size: 122
+      md5: a29dcb34d6ae2284caab604f58c513e0
+      size: 133

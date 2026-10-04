@@ -1,5 +1,5 @@
 {
-  "accuracy": 0.8925,
-  "f1_macro": 0.8909186728104617,
-  "commit_sha": "7f5dadd8e2a0c8694c2afecccf36dd42aaf14483"
+  "accuracy": 0.8951190476190476,
+  "f1_macro": 0.893855405298939,
+  "commit_sha": "6990426ba783fa3a9364519cf302c613ab5c6298"
 }
