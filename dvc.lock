@@ -34,8 +34,8 @@ stages:
       size: 61425870
     - path: src/train.py
       hash: md5
-      md5: 1cae659e04e0300c7ca1c496b73d11b7
-      size: 580
+      md5: 2013a2034dffe6d05273448bc80a0559
+      size: 1246
     params:
       params.yaml:
         data.target: label
@@ -43,6 +43,10 @@ stages:
         train:
           n_estimators: 100
           max_depth: 6
+          model: random_forest
+          C: 1.0
+          kernel: rbf
+          max_iter: 1000
     outs:
     - path: models/model.joblib
       hash: md5
