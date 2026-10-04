@@ -34,8 +34,8 @@ stages:
       size: 61425870
     - path: src/train.py
       hash: md5
-      md5: 1cae659e04e0300c7ca1c496b73d11b7
-      size: 580
+      md5: 67413a8e12fa4aea0e354cec2c5531d8
+      size: 810
     params:
       params.yaml:
         data.target: label
@@ -43,11 +43,12 @@ stages:
         train:
           n_estimators: 100
           max_depth: 6
+          class_weight: balanced
     outs:
     - path: models/model.joblib
       hash: md5
-      md5: 0b22406048a4638719935ed6f98ac0c1
-      size: 1879993
+      md5: 8109ce249576bc8f46e803f596cefe8d
+      size: 2143097
   evaluate:
     cmd: python src/evaluate.py
     deps:
@@ -57,8 +58,8 @@ stages:
       size: 15356124
     - path: models/model.joblib
       hash: md5
-      md5: 0b22406048a4638719935ed6f98ac0c1
-      size: 1879993
+      md5: 8109ce249576bc8f46e803f596cefe8d
+      size: 2143097
     - path: src/evaluate.py
       hash: md5
       md5: 8f3d08032197ce3d382296f1d784d27e
@@ -69,5 +70,5 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: 34b1295b138a8993f6538a85698cb3df
+      md5: 50d61f82e2e45601504b03d58362f03a
       size: 134
