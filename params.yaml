@@ -5,7 +5,7 @@ data:
 split:
   test_size: 0.2
 train:
-  n_estimators: 100
+  n_estimators: 400
   max_depth: 6
   model: random_forest
   C: 1.0
